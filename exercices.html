@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="uft-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="./assets/css/app.css">
+
+  <title>Super Heathy | Exercícios</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Super Healthy</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-header"
+        aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-header">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="exercices.html">Excercícios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="goals.html">Metas</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Ações
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="profile.html">Perfil</a></li>
+              <li><a class="dropdown-item" id="logout" href="#">Sair</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="navbar-text">
+          <span id="user-logged">
+            <strong>Usuário: </strong>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-3 px-5">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add-new-task">
+          <i class="far fa-check-circle"></i>
+          Adicionar
+        </button>
+
+        <div class="modal fade" id="add-new-task" tabindex="-1" aria-labelledby="add-new-task-Label" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="add-new-task-Label">Adicionar Exercício</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form class="row g-3 needs-validation" name="exercice">
+                  <div class="col-12">
+                    <label for="title" class="form-label">Título</label>
+                    <input type="text" name="title" class="form-control" id="title" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="description" class="form-label">Descrição</label>
+                    <textarea type="text" name="description" class="form-control" id="description" required></textarea>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="formFile" class="form-label">Imagem</label>
+                    <input class="form-control" name="file" type="file" id="formFile" required>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" onclick="handleSave()">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-12 mt-5 col-card">
+        <div class="card" style="height: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Corrida</h5>
+            <p class="card-text">
+              Realizar corridas para queima de massa gorda
+            </p>
+            <a href="#" class="card-link stretched-link" data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-12 mt-5">
+        <div class="card" style="height: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Polichinelo</h5>
+            <p class="card-text">
+              Realizar polichinelo para queima de massa gorda
+            </p>
+            <a href="#" class="card-link stretched-link" data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-12 mt-5">
+        <div class="card" style="height: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Agachamentos</h5>
+            <p class="card-text">
+              Para treinar pernas
+            </p>
+            <a href="#" class="card-link stretched-link" data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-12 mt-5">
+        <div class="card" style="height: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Abdominais</h5>
+            <p class="card-text">
+              Treino realizado para definir barriga
+            </p>
+            <a href="#" class="card-link stretched-link" data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Exercício - Corrida</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <img
+                  src="https://cms.rockymountain.com.br/runners/wp-content/uploads/sites/4/2016/08/em-busca-da-corrida-perfeita.jpg"
+                  class="card-img-top" alt="Logo Correndo">
+                <h3>Corrida</h3>
+
+                <p>
+                  Realizar corridas para queima de massa gorda
+                </p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script src="./assets/js/exercices.js"></script>
+
+</body>
+
+</html>

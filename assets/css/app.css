@@ -1,0 +1,47 @@
+.card:hover {
+  background-color: #08605f;
+  box-shadow: 10px 8px #7bf4f2;
+  transition: background-color 0.2s;
+
+  transform: translate(10px) rotate(5deg);
+  transition: transform 0.3s;
+  color: #f8f8f8;
+}
+
+.card:not(:hover) {
+  transform: translate(10px) rotate(-5deg);
+  transition: transform 0.3s;
+}
+
+.card {
+  box-shadow: 10px 8px rgba(0, 0, 0, 0.03);
+  color: #08605f;
+}
+
+.col-card {
+  position: relative;
+}
+
+.card-checked {
+  background-color: #08605f;
+  color: #f8f8f8;
+  background-image: url(../imgs/check-circle.svg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 360px 100px;
+}
+
+.card-checked:hover {
+  background-color: #08605f;
+  box-shadow: 10px 8px #7bf4f2;
+  color: #f8f8f8;
+}
+
+.card-checked::before {
+  position: absolute;
+  content: '\2714';
+  width: 0;
+  height: 0;
+  top: calc(100% - 30px);
+  left: calc(100% - 30px);
+}

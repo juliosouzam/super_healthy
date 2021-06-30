@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="uft-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="./assets/css/app.css">
+
+  <title>Super Heathy | Dashboard</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Super Healthy</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-header"
+        aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-header">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="dashboard.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="exercices.html">Excercícios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="goals.html">Metas</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Ações
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="profile.html">Perfil</a></li>
+              <li><a class="dropdown-item" id="logout" href="#">Sair</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="navbar-text">
+          <span id="user-logged">
+            <strong>Usuário: </strong>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-3 px-5">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add-new-task">
+          <i class="far fa-check-circle"></i>
+          Adicionar
+        </button>
+
+        <div class="modal fade" id="add-new-task" tabindex="-1" aria-labelledby="add-new-task-Label" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="add-new-task-Label">Adicionar Atividades</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form class="row g-3 needs-validation" novalidate>
+                  <div class="col-12">
+                    <label for="title" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="title" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="description" class="form-label">Descrição</label>
+                    <textarea type="text" class="form-control" id="description" required></textarea>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="validationCustomUsername" class="form-label">Exercícios</label>
+                  </div>
+
+                  <div class="row mb-2">
+                    <div class="col-md-8">
+                      <label for="validationCustom03" class="form-label">Exercício 1</label>
+                      <select class="form-select" id="validationCustom03" required>
+                        <option selected disabled value="">Selecione...</option>
+                        <option value="Andar">Andar</option>
+                        <option value="Andar de Bike">Andar de Bike</option>
+                        <option value="Correr">Correr</option>
+                        <option value="Musculação">Musculação</option>
+                        <option value="Nadar">Nadar</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Digite um exercício.
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="validationCustom04" class="form-label">Repetições</label>
+                      <select class="form-select" id="validationCustom04" required>
+                        <option selected disabled value="">Selecione...</option>
+                        <option value="x1">x1</option>
+                        <option value="x2">x2</option>
+                        <option value="x3">x3</option>
+                        <option value="x4">x4</option>
+                        <option value="x5">x5</option>
+                        <option value="x6">x6</option>
+                        <option value="x7">x7</option>
+                        <option value="x8">x8</option>
+                        <option value="x9">x9</option>
+                        <option value="x10">x10</option>
+                        <option value="x11">x11</option>
+                        <option value="x12">x12</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mb-2">
+                    <div class="col-md-8">
+                      <label for="validationCustom03" class="form-label">Exercício 2</label>
+                      <select class="form-select" id="validationCustom03" required>
+                        <option selected disabled value="">Selecione...</option>
+                        <option value="Andar">Andar</option>
+                        <option value="Andar de Bike">Andar de Bike</option>
+                        <option value="Correr">Correr</option>
+                        <option value="Musculação">Musculação</option>
+                        <option value="Nadar">Nadar</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Digite um exercício.
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="validationCustom04" class="form-label">Repetições</label>
+                      <select class="form-select" id="validationCustom04" required>
+                        <option selected disabled value="">Selecione...</option>
+                        <option value="x1">x1</option>
+                        <option value="x2">x2</option>
+                        <option value="x3">x3</option>
+                        <option value="x4">x4</option>
+                        <option value="x5">x5</option>
+                        <option value="x6">x6</option>
+                        <option value="x7">x7</option>
+                        <option value="x8">x8</option>
+                        <option value="x9">x9</option>
+                        <option value="x10">x10</option>
+                        <option value="x11">x11</option>
+                        <option value="x12">x12</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mb-2">
+                    <div class="col-md-8">
+                      <label for="validationCustom03" class="form-label">Exercício 3</label>
+                      <select class="form-select" id="validationCustom03" required>
+                        <option selected disabled value="">Selecione...</option>
+                        <option value="Andar">Andar</option>
+                        <option value="Andar de Bike">Andar de Bike</option>
+                        <option value="Correr">Correr</option>
+                        <option value="Musculação">Musculação</option>
+                        <option value="Nadar">Nadar</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Digite um exercício.
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="validationCustom04" class="form-label">Repetições</label>
+                      <select class="form-select" id="validationCustom04" required>
+                        <option selected disabled value="">Selecione...</option>
+                        <option value="x1">x1</option>
+                        <option value="x2">x2</option>
+                        <option value="x3">x3</option>
+                        <option value="x4">x4</option>
+                        <option value="x5">x5</option>
+                        <option value="x6">x6</option>
+                        <option value="x7">x7</option>
+                        <option value="x8">x8</option>
+                        <option value="x9">x9</option>
+                        <option value="x10">x10</option>
+                        <option value="x11">x11</option>
+                        <option value="x12">x12</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" onclick="handleSave()">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-12 mt-5 col-card">
+        <div class="card card-checked" style="height: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Atividades matinais</h5>
+            <p class="card-text">
+              Realizar atividades logo de manhã para ter melhor resultado.
+            </p>
+            <a href="#" class="card-link stretched-link" data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-12 mt-5">
+        <div class="card card-checked" style="height: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Atividades de caminhada</h5>
+            <p class="card-text">
+              Atividades para queima de gordura caminhada/corrida
+            </p>
+            <a href="#" class="card-link stretched-link" data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-12 mt-5">
+        <div class="card" style="height: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Atividade diária</h5>
+            <p class="card-text">
+              Todos os dias, executar séries de exercícios
+            </p>
+            <a href="#" class="card-link stretched-link" data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-12 mt-5">
+        <div class="card" style="height: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Musculação</h5>
+            <p class="card-text">
+              Série de exerćios para ganho massa magra
+            </p>
+            <a href="#" class="card-link stretched-link" data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Atividades matinais</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="btn-group-vertical" role="group" aria-label="Basic checkbox toggle button group">
+                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                <label class="btn btn-outline-success" for="btncheck1">30 min - Corrida</label>
+
+                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                <label class="btn btn-outline-success" for="btncheck2">10 min - Agachamento</label>
+
+                <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                <label class="btn btn-outline-success" for="btncheck3">6 min - Polichinelo</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-success" onclick="handleComplete()">Completar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container">
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script>
+    function handleSave() {
+      Swal.fire({
+        title: 'Sucesso',
+        text: 'Atividade salva com sucesso!',
+        icon: 'success'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.reload();
+        }
+      });
+    }
+
+    function handleComplete() {
+      Swal.fire({
+        title: 'Sucesso',
+        text: 'Atividade marcada com sucesso!',
+        icon: 'success'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.reload();
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
